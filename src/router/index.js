@@ -14,6 +14,39 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    // route level code-splitting
+    // this generates a separate chunk (contact.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "contact" */ '../views/ContactUs.vue')
+  },
+  {
+    path: '/product/:productName',
+    name: 'productName',
+    // route level code-splitting
+    // this generates a separate chunk (product.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "product" */ '../views/products/ProductName.vue')
+  },
+ 
+  {
+    path: '/product',
+    name: 'products',
+    // route level code-splitting
+    // this generates a separate chunk (product.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "products" */ '../views/products/ProductName.vue')
+  },
+  {
+    path: '/product/:orderId(\\d+)',
+    name: 'order',
+    // route level code-splitting
+    // this generates a separate chunk (contact.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "order" */ '../views/products/OrderId.vue')
   }
 ]
 
