@@ -21,7 +21,8 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (contact.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "contact" */ '../views/ContactUs.vue')
+    component: () => import(/* webpackChunkName: "contact" */ '../views/ContactUs.vue'),
+    sensitive: true //will match /users, /Users, and /users/42 but not /users/ or /users/42/
   },
   {
     path: '/product/:productName',
@@ -48,11 +49,13 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "order" */ '../views/products/OrderId.vue')
   }
+  
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
+  strict:true  // applies to all routes
 })
 
 export default router
